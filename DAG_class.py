@@ -118,12 +118,13 @@ class DAG:
         return list(R)
 
     #Function for vizualising the graph
-    def draw(self, output_path):
+    def draw(self, output_path = None):
         """
         In: 
             path: a string for the filename without file extension
         Out:
-            The graph visualized in a .pdf.
+            If path is given, the drawing is saved as a .png
+            Returns Digraph object
         """
         graph = Digraph(format='png')
 
@@ -131,7 +132,7 @@ class DAG:
             graph.node(n)
             for c in self.graph[n]:
                 graph.edge(n, c)
-
-        graph.render(output_path)
-        graph
+        if output_path:
+            graph.render(output_path)
+        return graph
 
