@@ -125,7 +125,7 @@ class DAG:
         Out:
             The graph visualized in a .pdf.
         """
-        graph = Digraph()
+        graph = Digraph(format='png')
 
         for n in self.nodes:
             graph.node(n)
@@ -133,5 +133,5 @@ class DAG:
                 graph.edge(n, c)
 
         graph.render(output_path)
-
+        graph
 
